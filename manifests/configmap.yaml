@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tasky-config
+  namespace: namespace-workflow-1745098649675
+  labels:
+    app.kubernetes.io/name: tasky
+    kubernetes.azure.com/generator: devhub
+data:
