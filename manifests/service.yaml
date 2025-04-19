@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wiz-tasky-aks
-  namespace: namespace-workflow-1745011064123
+  name: tasky
+  namespace: tasky-ns
   labels:
-    app.kubernetes.io/name: wiz-tasky-aks
+    app.kubernetes.io/name: tasky
     kubernetes.azure.com/generator: devhub
 spec:
   type: LoadBalancer
   selector:
-    app.kubernetes.io/name: wiz-tasky-aks
+    app.kubernetes.io/name: tasky
   ports:
     - protocol: TCP
       port: 8080
