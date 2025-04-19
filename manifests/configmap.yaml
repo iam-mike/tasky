@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wiz-tasky-aks-config
-  namespace: namespace-workflow-1745011064123
+  name: tasky-config
+  namespace: tasky-ns
   labels:
-    app.kubernetes.io/name: wiz-tasky-aks
+    app.kubernetes.io/name: tasky
     kubernetes.azure.com/generator: devhub
 data:

@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wiz-tasky-aks
+  name: tasky
   labels:
-    app.kubernetes.io/name: wiz-tasky-aks
+    app.kubernetes.io/name: tasky
     kubernetes.azure.com/generator: devhub
-  namespace: namespace-workflow-1745011064123
+  namespace: tasky-ns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: wiz-tasky-aks
+      app.kubernetes.io/name: tasky
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wiz-tasky-aks
+        app.kubernetes.io/name: tasky
     spec:
       containers:
-        - name: wiz-tasky-aks
-          image: wizaksregistry.azurecr.io/image-workflow-1745011064123:latest
+        - name: tasky
+          image: mwcontainerregistry20250418.azurecr.io/tasky-service:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -31,7 +31,7 @@ spec:
               memory: "1Gi"
           envFrom:
             - configMapRef:
-                name: wiz-tasky-aks-config
+                name: tasky-config
             - secretRef:
                 name: secret-ref
                 optional: true
@@ -83,11 +83,11 @@ spec:
               topologyKey: kubernetes.io/hostname
               labelSelector:
                 matchLabels:
-                  app.kubernetes.io/name: wiz-tasky-aks
+                  app.kubernetes.io/name: tasky
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: wiz-tasky-aks
+              app.kubernetes.io/name: tasky

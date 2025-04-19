@@ -1,18 +1,16 @@
-# Building the binary of the App
-FROM golang:1.19 AS build
+FROM golang:1.19 AS builder
 
-WORKDIR /go/src/tasky
+WORKDIR /build
+COPY go.mod go.sum ./
+RUN go mod download && go mod verify
 COPY . .
-RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /go/src/tasky/tasky
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o app-binary
 
+FROM gcr.io/distroless/static-debian12
 
-FROM alpine:3.17.0 as release
+ENV PORT=8080
+EXPOSE 8080
 
 WORKDIR /app
-COPY --from=build  /go/src/tasky/tasky .
-COPY --from=build  /go/src/tasky/assets ./assets
-EXPOSE 8080
-ENTRYPOINT ["/app/tasky"]
-
-
+COPY --from=builder /build/app-binary . 
+CMD ["/app/app-binary"]
