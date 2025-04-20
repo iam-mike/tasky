@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: tasky
     kubernetes.azure.com/generator: devhub
-  namespace: namespace-workflow-1745098649675
+  namespace: tasky
 spec:
   replicas: 1
   selector:
