@@ -7,3 +7,5 @@ metadata:
     app.kubernetes.io/name: tasky
     kubernetes.azure.com/generator: devhub
 data:
+  MONGODB_URI: mongodb://mike-admin:1@mw-wiz-mongo.eastus.cloudapp.azure.com:27017/?authSource=admin
+  SECRET_KEY: c3VwZXJTZWNyZXRTdHJpbmcxMjM0IQ==
