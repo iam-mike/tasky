@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: tasky
-          image: mwwizdemoacr.azurecr.io/image-workflow-1745098649675:latest
+          image: mwwizdemoacr.azurecr.io/tasky:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
