@@ -53,6 +53,8 @@ env:
   NAMESPACE: namespace-workflow-1745098649675
   ENABLENAMESPACECREATION: false
   AUTH_TYPE: SERVICE_PRINCIPAL
+  MONGODB_URI: mongodb://mike-admin:1@mw-wiz-mongo.eastus.cloudapp.azure.com:27017/?authSource=admin
+  SECRET_KEY: c3VwZXJTZWNyZXRTdHJpbmcxMjM0IQ==
 
 jobs:
   buildImage:
